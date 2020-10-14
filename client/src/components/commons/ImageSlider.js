@@ -19,11 +19,11 @@ function ImageSlider(props) {
               <Carousel autoplay>
                 {props.images.map((image,index)=>(
                     <ImageBlock key={index}>
-                        <img style={{width:"100%",maxHeight:"300px"}}
+                        <img style={{width:"100%",maxHeight:"400px"}}
                             src={`http://localhost:5000/${image}`}/>
                     </ImageBlock>
                 ))}
-            </Carousel>,
+            </Carousel>
         </div>
     )
 }

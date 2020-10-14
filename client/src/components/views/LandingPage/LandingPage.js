@@ -73,7 +73,9 @@ function LandingPage() {
     const renderCards = Products.map((product,index) => {
         return <Col lg={8} md={12} xs={24} key={index}>
         <Card
-        cover={<ImageSlider images={product.images} />}
+        cover={<ImageSlider images={product.images}
+        />}
+         bordered={false}
         >
             <Meta 
                 title={product.title}
@@ -122,7 +124,7 @@ function LandingPage() {
             {/* Search*/}
 
             {/* Cards*/}
-            <Row gutter={[16,16]}>        
+            <Row gutter={[16,16]} style={{marginTop:"100px"}}>        
             {renderCards}
             </Row>
             <br />

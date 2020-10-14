@@ -9,6 +9,7 @@ const BorderBar = styled.div`
 `;
 
 const IconBlock = styled.div`
+  margin-top:1rem;
   width:auto;
   height:120px;
   background-position:center,center;
@@ -17,40 +18,28 @@ const IconBlock = styled.div`
   background-repeat:no-repeat;
   background:url('${props=>props.image}');
 `;
-const WeatherBlock = styled.div`
-    margin:0 auto;
-    border-radius:16px;
-    width:80%;
-    margin-top:50px;
-`;
 
+
+const GirdBar = styled.div`
+  width:1100px;
+`;
 const GridBox = styled.div`
-    padding: .75rem 1.25rem;
-    border: 1px solid transparent;
-    border-radius: .25rem;
+  text-align:center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 15px;
 `;
-const GridBox1 = styled(GridBox)`
-    color: #004085;
-    background-color: #cce5ff;
-    border-color: #b8daff;
+const GridBorder =styled.div`
+  width:100%;
+  border-top:1px solid black;
+  border-bottom: 1px solid black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:2rem 0;
 `;
-
-const GridBox2 = styled(GridBox)`
-    color: #0c5460;
-    background-color: #d1ecf1;
-    border-color: #bee5eb;
-`;
-const GridBox3 = styled(GridBox)`
-    color: #155724;
-    background-color: #d4edda;
-    border-color: #c3e6cb;
-`;
-const GridBox4 = styled(GridBox)`
-    color: #383d41;
-    background-color: #e2e3e5;
-    border-color: #d6d8db;
-`;
-
 const TtitleBlock = styled.div`
 
   padding: 40px 0 0 0;
@@ -70,9 +59,6 @@ const TtitleBlock = styled.div`
     font-weight: bold;
     }
   }
-`;
-const GridBlock = styled.div`
-
 `;
 const Map=()=> {
   const [currentData,setCurrentData]= useState([]);
@@ -135,39 +121,43 @@ let iconurl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
   return (
     <>
-    <WeatherBlock>
               <Row gutter={[16, 16]}>
                 <Col span={24} style={{textAlign:"center"}} >
                       {/* <Icon image={iconurl}/> */}
                       <img style={{width:"120px"}} src= {iconurl} />
                   </Col>
+             </Row>
+              <GridBorder>
+              <GirdBar>
+
+             <Row gutter={[16, 16]}>
                 <Col lg={4} md={12} xs={12}>
-                  <GridBox1>
+                  <GridBox>
                      강수확률: {Math.round(dailyData.pop*100)}%
-                  </GridBox1>
+                  </GridBox>
                 </Col>
                 <Col lg={4} md={12} xs={12}>
-                  <GridBox2>
+                  <GridBox>
                   현재 온도: {Math.round(currentData.temp-273.15)}
-                  </GridBox2>
+                  </GridBox>
                 </Col>
                 <Col lg={4} md={12} xs={12}>
-                  <GridBox3>  
+                  <GridBox>  
                   날씨: {weather.description}
-                  </GridBox3>
+                  </GridBox>
                   </Col>
                 <Col lg={4} md={12} xs={12}>
-                  <GridBox4>
+                  <GridBox>
                   습도: {currentData.humidity}%
-                  </GridBox4>
+                  </GridBox>
                   </Col>
                 <Col lg={4} md={12} xs={12}>
-                  <GridBox1>
+                  <GridBox>
                   바람: {currentData.wind_speed}m/s
-                  </GridBox1>
+                  </GridBox>
                   </Col>
                 <Col lg={4} md={12} xs={12}>
-                  <GridBox2>
+                  <GridBox>
                     자외선: {currentData.uvi} {(
                       ()=>{
                         if(0<currentData.uvi && currentData.uvi<=2){
@@ -181,13 +171,15 @@ let iconurl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
                         }
                       })()
                     }
-                  </GridBox2>
+                  </GridBox>
                   </Col>
              </Row>
+              </GirdBar>
+              </GridBorder>
              <TtitleBlock>
                 <h1>당신을 위한 추천</h1>
              </TtitleBlock>
-    </WeatherBlock>
+
     </>
   )
 };

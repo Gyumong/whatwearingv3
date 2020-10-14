@@ -32,7 +32,7 @@ function LoginPage(props) {
           .email('Email is invalid')
           .required('Email is required'),
         password: Yup.string()
-          .min(6, 'Password must be at least 6 characters')
+          .min(6, '최소 6글자를 넘겨주세요')
           .required('Password is required'),
       })}
       onSubmit={(values, { setSubmitting }) => {

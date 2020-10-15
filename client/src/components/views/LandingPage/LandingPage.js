@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,lazy, Suspense} from 'react';
 import { FaCode } from "react-icons/fa";
 import axios from 'axios';
 import styled from 'styled-components';
@@ -100,14 +100,12 @@ function LandingPage() {
         showFilteredResults(newFilters)
         setFilters(newFilters)
     }
-
-    const handleWheather = ()=>{
-        
-    }
-
+    const LazyMap = lazy(() => import('../wheatherPage/Map'));
     return (
         <>
-            <Map/>
+        <Suspense fallback={<div>...loading</div>}> 
+            <LazyMap/>
+        </Suspense>
         <LandingPageBlock>
 
             {/* Filter*/}

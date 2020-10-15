@@ -60,7 +60,7 @@ const TtitleBlock = styled.div`
     }
   }
 `;
-const Map=()=> {
+const Map=(props)=> {
   const [currentData,setCurrentData]= useState([]);
   const [Data, setData] = useState([]);
   const [weather,setWeather]=useState([]);
@@ -69,56 +69,48 @@ const Map=()=> {
   const [uvi, setuvi] = useState('');
   const [dailyData, setdailyData] = useState([]);
   const [temp,setTemp] = useState([]);
-
-  const Test = ["1","2","3","4","5","6","7","8",1,1,1,1,1,1,1,1]
-  const Test2 = [
-    
-  ]
-
+  const [latitude, setlatitude] = useState(0);
+  const [longitude, setlongitude] = useState(0);
+  const [location, setLocation] = useState([]);
   
-  useEffect((longitude,latitude) => {
-    const fetchlotaion=()=>{
-      if('geolocation' in navigator) {
-        /* 위치정보 사용 가능 */
-        navigator.geolocation.getCurrentPosition((pos)=> {
-          const latitude = pos.coords.latitude;
-          const longitude = pos.coords.longitude;
-          alert("현재 위치는 : " + latitude + ", "+ longitude);
-          const URL =`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&lang=kr&
-          exclude=hourly,daily&appid=c13cc1190412a125332e2bf4620fa404`;
-          fetchData(URL);
-      });
-      } else {
-        /* 위치정보 사용 불가능 */
-        alert('위치 못가져옴');
-      }
-    };
-    fetchlotaion();
-  }, []);
+  const api = axios.create({
+    baseURL: "https://api.openweathermap.org/data/2.5/onecall?appid=c13cc1190412a125332e2bf4620fa404&units=metric",
+  });
   
-  const fetchData = async(URL)=>{
-    try{
-      setLoading(true);
-      const response = await axios.get(URL);
-      setData(response.data);
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(handleGeoSucces);
+    api
+    .get("/", {
+      params: {
+        lat: latitude,
+        lon: longitude,
+      },
+    })
+    .then((response) => {
+      setLocation(response.data);
       setCurrentData(response.data.current);
       setWeather(response.data.current.weather[0]);
       setdailyData(...response.data.daily);
       setTemp(response.data.daily[0]);
-      
-    }catch(e){
-      console.log(e);
-    }
-    setLoading(false);
-  };
+      console.log(location)
+    })
+    .catch((error) => {
+      console.log("error");
+    });
+
+  }, [latitude, longitude]);
+  
+  function handleGeoSucces(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    setlatitude(latitude);
+    setlongitude(longitude);
+  }
+
   if (loading) return <div>로딩중..</div>;
-console.log(Data)
-console.log(dailyData)
-
-const icon = weather.icon;
-console.log(icon)
-let iconurl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-
+  const icon = weather.icon;
+  let iconurl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  
   return (
     <>
               <Row gutter={[16, 16]}>

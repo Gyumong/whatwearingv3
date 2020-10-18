@@ -9,6 +9,7 @@ import CheckBox from './Sections/CheckBox';
 import RadioBox from './Sections/RadioBox';
 import {seasons,gender} from './Sections/Data';
 import Map from '../wheatherPage/Map';
+import {Link} from 'react-router-dom';
 const LandingPageBlock =styled.div`
     width:75%;
     margin: 3rem auto;
@@ -72,6 +73,7 @@ function LandingPage() {
     }
     const renderCards = Products.map((product,index) => {
         return <Col lg={8} md={12} xs={24} key={index}>
+        <Link to={`product/${product._id}`}>
         <Card
         cover={<ImageSlider images={product.images}
         />}
@@ -81,6 +83,7 @@ function LandingPage() {
                 title={product.title}
             />  
         </Card>   
+        </Link>
         </Col>
     })
     const showFilteredResults = (filters) =>{
@@ -136,4 +139,4 @@ function LandingPage() {
     )
 }
 
-export default LandingPage
+export default React.memo(LandingPage);

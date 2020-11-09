@@ -9,14 +9,29 @@
 }
 
 .menu__logo {
-  width: 150px;
+  width: 250px;
   float: left;
 }
 
 .menu__logo a {
-  display: inline-block;
-  font-size: 20px;
-  padding: 19px 20px;
+  position: relative;
+  display: flex;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  padding: 14px 20px;
+  color:black;
+}
+.menu__logo a .logo_top{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  position: absolute;
+  bottom:43px;
+  color:#636262; 
 }
 
 .menu__container .ant-menu-item {
@@ -34,10 +49,6 @@
 
 .menu__container .ant-menu-horizontal {
   border-bottom: none;
-}
-
-.menu__container .menu_left {
-  float: left;
 }
 
 .menu__container .menu_rigth {

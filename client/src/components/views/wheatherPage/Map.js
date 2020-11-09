@@ -41,7 +41,6 @@ const GridBorder =styled.div`
   padding:2rem 0;
 `;
 const TtitleBlock = styled.div`
-
   padding: 40px 0 0 0;
   margin-bottom: 30px;
   h1{
@@ -109,7 +108,6 @@ const Map=(props)=> {
       setWeather(response.data.current.weather[0]);
       setdailyData(...response.data.daily);
       setTemp(response.data.daily[0]);
-      
     }catch(e){
       console.log(e);
     }

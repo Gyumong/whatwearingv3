@@ -8,11 +8,17 @@ const InfoBlock = styled.div`
 const InfoTitle = styled.div`
     font-size: 22px;
     margin-bottom:8px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
 `;
 
 const InfoDesc = styled.div`
     margin-bottom: 18px;
     font-size: 28px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
 `;
 
 const InfoLast = styled.div`
@@ -21,6 +27,9 @@ const InfoLast = styled.div`
     justify-content:space-around;
     h3{
         font-size:18px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
     }
 `;
 function ProductInfo(props) {
@@ -32,10 +41,6 @@ function ProductInfo(props) {
             <InfoDesc>
                 {props.detail.description}
             </InfoDesc>
-            <InfoLast>
-                <h3>{props.detail.sold}</h3>
-                <h3>{props.detail.views}</h3>
-            </InfoLast>
         </InfoBlock>
     )
 }

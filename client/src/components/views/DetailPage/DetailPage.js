@@ -15,6 +15,7 @@ const DetailBlock = styled.div`
 const ProductBlock = styled.div`
 
 `;
+
 function DetailPage() {
     const [Product, setProduct] = useState({});
     const {productId} = useParams();
@@ -35,11 +36,9 @@ function DetailPage() {
             <ProductBlock>
             <Row gutter={[16,16]}>
                 <Col lg={12} sm={24}>
-
                     <ProductImage detail={Product} />
                 </Col>
                 <Col lg={12} sm={24}>
-
                     <ProductInfo detail={Product}/>
                 </Col>
             </Row>

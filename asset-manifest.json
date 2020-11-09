@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/whatwearingv3/static/css/main.ff4b66b8.chunk.css",
+    "main.js": "/whatwearingv3/static/js/main.cc343915.chunk.js",
+    "main.js.map": "/whatwearingv3/static/js/main.cc343915.chunk.js.map",
+    "runtime-main.js": "/whatwearingv3/static/js/runtime-main.4d0b056f.js",
+    "runtime-main.js.map": "/whatwearingv3/static/js/runtime-main.4d0b056f.js.map",
+    "static/css/2.6fe1918f.chunk.css": "/whatwearingv3/static/css/2.6fe1918f.chunk.css",
+    "static/js/2.e3aaf733.chunk.js": "/whatwearingv3/static/js/2.e3aaf733.chunk.js",
+    "static/js/2.e3aaf733.chunk.js.map": "/whatwearingv3/static/js/2.e3aaf733.chunk.js.map",
+    "index.html": "/whatwearingv3/index.html",
+    "precache-manifest.e9e276553adc635b4e55e96136be0e19.js": "/whatwearingv3/precache-manifest.e9e276553adc635b4e55e96136be0e19.js",
+    "service-worker.js": "/whatwearingv3/service-worker.js",
+    "static/css/2.6fe1918f.chunk.css.map": "/whatwearingv3/static/css/2.6fe1918f.chunk.css.map",
+    "static/css/main.ff4b66b8.chunk.css.map": "/whatwearingv3/static/css/main.ff4b66b8.chunk.css.map",
+    "static/js/2.e3aaf733.chunk.js.LICENSE.txt": "/whatwearingv3/static/js/2.e3aaf733.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4d0b056f.js",
+    "static/css/2.6fe1918f.chunk.css",
+    "static/js/2.e3aaf733.chunk.js",
+    "static/css/main.ff4b66b8.chunk.css",
+    "static/js/main.cc343915.chunk.js"
+  ]
+}

@@ -28,7 +28,7 @@ const ButtonBlock= styled.div`
 function LandingPage() {
     const [Products, setProducts] = useState([]);
     const [Skip, setSkip] = useState(0);
-    const [Limit, setLimit] = useState(8);
+    const [Limit, setLimit] = useState(30);
     const [PostSize, setPostSize] = useState(0);
     const [Filters, setFilters] = useState({
         seasons:[],
@@ -56,12 +56,12 @@ function LandingPage() {
                 alert("상품들을 가져오는데 실패 했습니다.")
             }
         })
-
+        
     }
-
+    
     const loadMore = () =>{
         let skip = Skip + Limit
-
+        
         let body = {
             skip:Skip,
             limit:Limit,
@@ -69,7 +69,7 @@ function LandingPage() {
         }
         getProducts(body)
         setSkip(skip)
-
+        
     }
     const renderCards = Products.map((product,index) => {
         return <Col lg={8} md={12} xs={24} key={index}>
@@ -77,11 +77,13 @@ function LandingPage() {
         <Card
         cover={<ImageSlider images={product.images}
         />}
-         bordered={false}
+        bordered={false}
         >
             <Meta 
                 title={product.title}
-            />  
+                
+                description={product.description}
+                />  
         </Card>   
         </Link>
         </Col>
@@ -125,15 +127,15 @@ function LandingPage() {
             {/* Search*/}
 
             {/* Cards*/}
-            <Row gutter={[16,16]} style={{marginTop:"100px"}}>        
+            <Row style={{marginTop:"100px"}}>        
             {renderCards}
             </Row>
             <br />
-            {PostSize >= Limit &&            
+            {/* {Products.length >= Limit &&            
             <ButtonBlock>
                 <Button onClick={loadMore}>더보기</Button>
             </ButtonBlock>
-            }
+            } */}
         </LandingPageBlock>
         </>
     )

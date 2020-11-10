@@ -9,7 +9,7 @@ const ImageBlock = styled.div`
     box-sizing: border-box;
     overflow: hidden;
     width:350px;
-    height: 400px;
+    height: 500px;
     margin: 0 ;
     padding-top:30px;
     padding-left:20px;
